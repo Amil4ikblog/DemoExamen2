@@ -1,0 +1,33 @@
+﻿<Window x:Class="Auto_Technical_Center.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Авто Технический Центр" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="10">
+            <Label Content="ФИО:"/>
+            <TextBox x:Name="FioTextBox" Width="200"/>
+
+            <Label Content="Номер телефона:"/>
+            <TextBox x:Name="PhoneTextBox" Width="200"/>
+
+            <Label Content="Email:"/>
+            <TextBox x:Name="EmailTextBox" Width="200"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Button Content="Добавить клиента" Width="120" Click="AddButton_Click"/>
+                <Button Content="Редактировать клиента" Width="120" Click="EditButton_Click" Margin="5,0,0,0"/>
+                <Button Content="Удалить клиента" Width="120" Click="DeleteButton_Click" Margin="5,0,0,0"/>
+            </StackPanel>
+
+            <ListView x:Name="ListViewClient" Height="200" SelectionChanged="ListViewClient_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding FIO}" Width="200"/>
+                        <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding ContactPhoneNumbers}" Width="200"/>
+                        <GridViewColumn Header="Email" DisplayMemberBinding="{Binding EmailAddresses}" Width="200"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Window>
